@@ -1,0 +1,55 @@
+---
+import { markHTMLString } from 'astro/runtime/server/escape.js'
+import ExperienciaItem from './ExperienciaItem.astro'
+import { renderHTMLElement } from 'astro/runtime/server/index.js'
+const EXPERIENCIA  = [
+    {
+        titulo: 'Gestor de postventa e IT',
+        empresa:'Novality',
+        imagen: "https://andalucia.openfuture.org/wp-content/uploads/2021/05/logo-novality.png",
+        fechas:"2023 - 2024",
+        descripcion:"Depuración de incidencias en el entorno de desarrollo, auditando los fallos y reportando acciones correctivas para su cumplimentación. Desarrollo de nuevas funcionalidades, integración de las mismas y pruebas funcionales. Programación de PLC, modificación y corrección de errores en el software. Configuración de routers, firwalls y direccionamiento de puertos. Motorización de las comunicaciones en tiempo real. Integración del sistema con power BI para el análisis de datos del sistema.",
+    },
+    {
+        titulo: 'Desarrollador web',
+        empresa: "Al Rescate",
+        imagen: "https://alrescate.com/wp-content/uploads/2022/03/cropped-cropped-logo-alrescate-1.png",
+        fechas: "Junio 2023",
+        descripcion:"Realizando adaptaciones de páginas a frameworks de wordpress y desarrollando nuevas funcionalidades como, por ejemplo, formularios de contacto. Traspasando tiendas online desde Woo comerce a Prestashop. Instalación y configuración de Sistemas operativos y software en varios equipos.",
+    },
+    {
+        titulo: "Técnico instalador audiovisuales y electricidad",
+        empresa: "Barnesur S.L.",
+        imagen: "/public/logos/LOGO_BARNESUR.jpg",
+        fechas: "Agosto 2021 - Junio 2022",
+        descripcion: "Amplia experiencia en la realización de instalaciones de sonido y vídeo, así como en la configuración de equipos y sistemas eléctricos. He trabajado tanto en obras como en tiendas abiertas al público, brindando soluciones técnicas integrales a clientes de diversos sectores. Además, he coordinado a un equipo de tres técnicos, asegurando una ejecución eficiente de los proyectos y garantizando la satisfacción del cliente. Mi enfoque en la atención al detalle y la calidad del trabajo ha sido fundamental para el éxito de cada proyecto. He desarrollado habilidades especializadas en la instalación y configuración de sistemas de sonido y vídeo, así como en la implementación de soluciones eléctricas. ciones innovadoras y adaptadas a las necesidades específicas de cada proyecto."        
+    },
+    {
+        titulo: "Mecánico de Aeronaves",
+        empresa: "Ministerio de defensa - Ejercito del Aire",
+        imagen: "https://www.feindef.com/images/2023/02/27/265.jpg",
+        fechas: "Septiembre 2000 - Agosto 2021",
+        descripcion: "Militar profesional en el Ejército del Aire en la B.A. de Morón de la Frontera. Destinado en la Línea de Propulsión P3-Orión (2000 - 2006): Atención del avión en línea de vuelo, diagnóstico, determinación y reparación de averías. Destinado en el Taller de Propulsión P3-Orión (2006-2021): Revisiones periódicas. Sustitución de motores y hélices en avión. Reparación de averías en taller. Prueba en tierra de motores y hélices. Gestión del repuesto propio del taller. Programación de bases de datos para la gestión de las reparaciones y mantenimientos de los motores y hélices.Misiones internacionales:“Libertad duradera” en Djibouti (África) “Centinela del Índico” en Djibouti “Atlanta” en Djibouti “Sophia” en Italia Recompensas militares: Cruz del Mérito Aeronáutico con distintivo Blanco, 2010 Medalla al Servicio de la Política de Seguridad y Defensa, 2010 Cruz a la Constancia en el Servicio, 2015 Mención Honorífica Militar, 2009 Felicitación individual. Djibouti, 2012 ( Secuestro Alakrana).         Al cumplir los 45 años la administración resuelve el compromiso pasando a la situación de Reservista de especial disponibilidad"
+    },
+    {
+        titulo: "Profesor de Educación Primaria",
+        empresa: "Ministerio de Educación",
+        imagen: "https://www.alfaeventos.com/wp-content/uploads/2016/12/ministerio-de-educacion-y-ciencia.jpg",
+        fechas: "Septiembre 1998 - Agosto 2000",
+        descripcion:("<p>Trabajé como profesor de Religión de Educación Primaria en diferentes centros educativos en horario compartido:<br> * CEIP 'Macarena(Altos colegios)', Sevilla.<br> CEE 'Virgen de la Esperanza (Ed. Especial)', Sevilla. Durante mi experiencia como profesor de Religión Católica, he adquirido habilidades pedagógicas y promovido valores éticos y morales entre mis estudiantes. He trabajado en diversos centros educativos, adaptando mi enfoque pedagógico a las necesidades y características individuales de cada estudiante. He fomentado un entorno inclusivo y de respeto, colaborando con otros profesionales para ofrecer una educación integral.</p>")
+    },
+    {
+        titulo: "Profesor de Educación Primaria",
+        empresa: "Arzobispado de Sevilla",
+        imagen: "https://www.archisevilla.org/wp-content/uploads/2015/04/thumb-default.jpg",
+        fechas: "Septiembre 1998 - Agosto 2000",
+        descripcion:"Trabajé como profesor de Religión de Educación Primaria en diferentes centros educativos en horario compartido: CEIP 'Virgilio Fernández Pérez', Villanueva del Río y Minas, Sevilla. CEIP 'Miguel de Cervantes', Alcolea del Río, Sevilla. CEIP 'San José de Calasanz', La Puebla de los Infantes, Sevilla. He trabajado con dedicación y compromiso para brindar una educación integral y de calidad a mis estudiantes. Mi enfoque se basa en adaptarme a las necesidades individuales de los alumnos, utilizando metodologías efectivas y recursos didácticos apropiados. He colaborado estrechamente con colegas y padres de familia para crear un entorno de aprendizaje inclusivo y motivador."
+    }
+
+]
+---
+<ol class="relative border-s border-gray-200 dark:border-gray-700">
+    { EXPERIENCIA.map((e)=>(<ExperienciaItem {...e}/>))}
+    
+</ol>
+

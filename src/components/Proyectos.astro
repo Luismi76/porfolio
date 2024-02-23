@@ -1,0 +1,77 @@
+---
+import Astro_ico from "../components/iconos/Astro_ico.astro";
+import Tailwind_ico from "../components/iconos/Tailwind_ico.astro";
+import Prestashop from "../components/iconos/prestashop.astro";
+import Wordpress from "../components/iconos/WordPress.astro"
+interface proyecto {
+  nombre: string;
+  descripcion?: string;
+  imagen: File;
+  etiquetas: Array<Object>;
+}
+const TAGS = {
+  ASTRO: {
+    nombre: "Astro",
+    class: "bg-white",
+    icon: Astro_ico,
+  },
+  TAILWIND: {
+    nombre: "Tailwind",
+    class: "bg-[#003159] text-white",
+    icon: Tailwind_ico,
+  },
+  PRESTASHOP: {
+    nombre: "Prestashop",
+    class: "bg-black text-[#A4DBE8]",
+    icon: Prestashop,
+  },
+  WORDPRESS: {
+    nombre: "WordPress",
+    class: "bg-white text-[#277294]",
+    icon: Wordpress,
+  }
+};
+const PROYECTOS = [
+  {
+    nombre: "eCV",
+    descripcion: "Curriculum online",
+    imagen: "/public/proyectos/eCV.jpg",
+    etiquetas: [TAGS.ASTRO, TAGS.TAILWIND],
+  },
+  {
+    nombre: "Modas Rocio",
+    descripcion:
+      "Tienda online realizada con PrestaShop, plataformas de pago online y vaios pluggins.",
+    imagen: "/public/proyectos/ModasRocio.jpg",
+    etiquetas: [TAGS.PRESTASHOP],
+  },
+  {
+    nombre: "Caseta Los Costaleros",
+    descripcion: "CMS para la gestión de una asociación dedicada al funcionamiento y mantenimiento e una caseta de feria.",
+    imagen: "/public/proyectos/Caseta.jpg",
+    etiquetas: [TAGS.WORDPRESS]
+  }
+];
+---
+
+<div class="grid grid-cols-2 gap-4 text-black hover:grid-cols-1">
+  {
+    PROYECTOS.map((proyecto) => (
+      <div class="bg-slate-300 rounded-lg overflow-hidden shadow-lg p-3 hover:bg-slate-300 ">
+        <img src={proyecto.imagen} alt="" class="rounded-lg" />
+        <h3 class="h-auto max-w-full rounded-lg text-xl mx-1">
+          {proyecto.nombre}
+        </h3>
+        <p class="opacity-65 text-sm">{proyecto.descripcion}</p>
+        {proyecto.etiquetas.map((etiqueta) => (
+          <div
+            class={`inline-flex text-xs font-bold ${etiqueta.class} mx-1 px-2 py-1 rounded-lg`}
+          >
+          <etiqueta.icon class="size-4" />
+            {etiqueta.nombre}
+          </div>
+        ))}
+      </div>
+    ))
+  }
+</div>

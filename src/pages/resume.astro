@@ -1,0 +1,67 @@
+---
+import Plantilla from "../plantilla/Base.astro";
+import Badge from "../components/Badge.astro";
+import Correo from "../components/Correo.astro";
+import Github from "../components/Github.astro";
+import Linkedin from "../components/Linkedin.astro";
+import Experiencia from "../components/Experiencia.astro";
+import Contenedor from "../components/Contenedor.astro";
+import Briefcase from "../components/iconos/Briefcase.astro";
+import Code from "../components/iconos/Code.astro"
+import Proyectos from "../components/Proyectos.astro";
+import Books from "../components/iconos/Books.astro"
+import School from "../components/iconos/School.astro"
+import Educacion from "../components/Educacion.astro"
+import Frormacion from  "../components/Formacion.astro";
+import Certificate from "../components/iconos/Certificate.astro"
+import Cursos from "../components/Cursos.astro"
+---
+
+<Plantilla title="Desarrollador y programador web.">
+  <main>
+    <Contenedor class="py-44">
+      <h1 class="text-4xl font-bold flex justify-center flex-row">
+        Luis Miguel Santana Castaño
+      </h1>
+      <ul class="inline-flex gap-3 mt-2 justify-center">
+        <li>
+          <Correo>trabajo@lmsc.es</Correo>
+        </li>
+        <li>
+          <Github>Luismi76</Github>
+        </li>
+        <li>
+          <Linkedin>lmsc76</Linkedin>
+        </li>
+      </ul>
+    </Contenedor>
+    <Contenedor>
+      <h2 class="text-2xl font-semibold mb-6 flex gap-x-2 items-center">
+        <Briefcase class="size-6" />
+        Experiencia laboral
+      </h2>      
+      <Experiencia />
+    </Contenedor>
+    <Contenedor>
+        <h2 class="text-2xl font-semibold mb-6 flex gap-x-2 items-center">
+            <School class="size-6" />
+            Educación            
+          </h2>  
+          <Educacion />
+    </Contenedor>
+    <Contenedor>
+        <h2 class="text-2xl font-semibold mb-6 flex gap-x-2 items-center">
+            <Books class="size-6" />
+            Formación      
+          </h2>  
+          <Frormacion />
+    </Contenedor>
+    <Contenedor>
+        <h2 class="text-2xl font-semibold mb-6 flex gap-x-2 items-center">
+            <Certificate class="size-6" />
+            Cursos      
+          </h2>  
+          <Cursos />
+    </Contenedor>
+  </main>
+</Plantilla>

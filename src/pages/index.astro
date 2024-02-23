@@ -1,16 +1,61 @@
 ---
-
+import Plantilla from "../plantilla/Base.astro";
+import Badge from "../components/Badge.astro";
+import Correo from "../components/Correo.astro";
+import Github from "../components/Github.astro";
+import Linkedin from "../components/Linkedin.astro";
+import Experiencia from "../components/Experiencia.astro";
+import Contenedor from "../components/Contenedor.astro";
+import Briefcase from "../components/iconos/Briefcase.astro";
+import Code from "../components/iconos/Code.astro"
+import Proyectos from "../components/Proyectos.astro";
+import Books from "../components/iconos/Books.astro"
+import School from "../components/iconos/School.astro"
+import Educacion from "../components/Educacion.astro"
+import Frormacion from  "../components/Formacion.astro";
+import Certificate from "../components/iconos/Certificate.astro"
+import Cursos from "../components/Cursos.astro"
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Plantilla title="Desarrollador y programador web.">
+  <main>
+    <Contenedor class="py-44">
+      <div class="flex"><img
+        src="public/avatar.jpg"
+        alt="imagen del logo"
+        class="size-16 rounded-full m-1 shadow"
+      />
+      <h1 class="text-4xl font-bold flex justify-center flex-row">
+        Hola, soy Luis Miguel Santana <div
+          class="flex justify-center items-center ml-2"
+        >
+          <Badge>Disponible para trabajar</Badge>
+        </div>
+      </h1></div>
+      <h2 class="text-justify">
+        Imagina tener una aplicación web a medida que te haga la vida más fácil y te ayude a destacar entre la multitud. ¡Eso es lo que hacemos!
+        En santaDev, nos especializamos en diseñar y gestionar aplicaciones web que se adaptan perfectamente a las necesidades de cada pequeño negocio. Ya sea que necesites una plataforma de comercio electrónico súper intuitiva para vender tus productos únicos, o una aplicación para reservar citas, ¡nosotros lo tenemos cubierto!
+        Pero no sólo nos quedamos en el diseño. Nos aseguramos de que tu aplicación web sea una experiencia excepcional tanto para ti como para tus clientes. Nos enfocamos en la usabilidad, la velocidad y la seguridad, porque sabemos que eso es lo que realmente importa.
+        En santaDev, creemos que todos los negocios, grandes o pequeños, merecen una presencia digital increíble. Así que déjanos encargarnos de la parte técnica mientras tú te enfocas en lo que amas hacer. ¡Juntos llevaremos tu negocio a nuevas alturas en el mundo digital!
+      </h2>
+      <ul class="inline-flex gap-3 mt-2">
+        <li>
+          <Correo>trabajo@lmsc.es</Correo>
+        </li>
+        <li>
+          <Github>Luismi76</Github>
+        </li>
+        <li>
+          <Linkedin>lmsc76</Linkedin>
+        </li>
+      </ul>
+    </Contenedor>
+    <Contenedor>
+      <h2 class="text-2xl font-semibold mb-6 flex gap-x-2 items-center">
+        <Code class="size-6" />
+        Proyectos
+      </h2>      
+      <Proyectos />
+    </Contenedor>
+  </main>
+</Plantilla>
