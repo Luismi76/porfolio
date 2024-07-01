@@ -1,4 +1,8 @@
 ---
+import { Image } from "astro:assets";
+import Aspasia from "../assets/logos/logo-aspasia.png";
+import Incibe from "../assets/logos/logo-incibe.png"
+import Core from "../assets/logos/core-networks.png"
 interface estudio {
     nombre: string,
     descripcion?: string,
@@ -10,32 +14,39 @@ const EDUCACION =[
     {
         nombre: "Técnico de Sistemas informáticos",
         descripcion:"Certificado de profesionalidad",
-        imagen:"https://grupoaspasia.com/wp-content/uploads/2022/02/Logo350x70-2.png",
+        imagen:Aspasia,
         horas: "600",
         fechas: "Junio 2023"
     },
     {
         nombre: "Administrador de Bases de Datos",
         descripcion:"Certificado de profesionalidad",
-        imagen:"https://grupoaspasia.com/wp-content/uploads/2022/02/Logo350x70-2.png",
+        imagen:Aspasia,
         horas:"680",
         fechas: "Octubre 2023"
     },
     {
         nombre: "Técnico en Ciberseguridad",
-        descripcion:"Certificado de profesionalidad",
-        imagen:"https://www.citopcv.com/sites/default/files/logo-incibe.png",
+        descripcion:"",
+        imagen:Incibe,
         horas:"250",
         fechas: "Junio 2023"
+    },
+    {
+        nombre: "Administrador de Oracle Database",
+        descripcion:"",
+        imagen:Core,
+        horas:"200",
+        fechas: "Mayo 2024"
     }
 ]
 ---
-<div class="grid grid-cols-3 gap-4 text-black hover:grid-cols-2 hover:text-lg transition-all duration-150">
+<div class="grid grid-cols-2 md:grid-cols-3 gap-4 text-black hover:grid-cols-1 hover:md:grid-cols-2 hover:text-lg transition-all duration-150">
 {EDUCACION.map(estudio =>(
-    <div class="flex bg-white opacity-85 rounded-lg overflow-hidden shadow-lg p-1 items-center" >
-        <div class="p-2">
-        <div class="flex items-center justify-center"><img src={estudio.imagen} alt="" class=" w-44 p-1"></div>
-        <h3 class="h-auto max-w-full rounded-lg font-bold text-xl mb-2">{estudio.nombre}</h3>
+    <div class="bg-white opacity-85 rounded-lg shadow-lg p-1 items-center" >
+        <div class="p-2 ">
+        <div class="flex items-center justify-center"><Image src={estudio.imagen} alt="" class=" w-44 p-1"></div>
+        <h3 class="rounded-lg text-center font-bold text-xl mb-2">{estudio.nombre}</h3>
         <p class="opacity-65">{estudio.descripcion}</p>
         <p class="font-extrabold">{estudio.horas} h</p>
         <p class="font-bold">{estudio.fechas}</p>    

@@ -1,11 +1,6 @@
 ---
-interface Props {
-  titulo: string;
-  empresa: string;
-  fechas: string;
-  imagen?: string;
-  descripcion: string;
-}
+import { Image } from 'astro:assets';
+
 const { titulo, empresa, imagen, fechas, descripcion } = Astro.props;
 ---
 
@@ -17,13 +12,12 @@ const { titulo, empresa, imagen, fechas, descripcion } = Astro.props;
   </div>
   <div class="flex">
   <div class="size-20">
-    <img src={imagen} alt="">
+    <Image src={imagen} alt="" />
 </div>
 <div class="flex-auto">
   <time
     class="mb-1 text-sm font-normal leading-none text-cyan-400 dark:text-cyan-500"
-    >{fechas}</time
-  >
+    >{fechas}</time>
   <h3 class="text-lg font-semibold text-yellow-300 dark:text-white">{titulo}</h3>
 </div>
 </div>

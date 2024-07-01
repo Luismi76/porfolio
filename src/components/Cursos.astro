@@ -1,4 +1,18 @@
 ---
+import { Image } from "astro:assets"
+import Afoe from "../assets/logos/AFOE.jpg"
+import Ala11 from "../assets/logos/ala11.png"
+import Ceoe from "../assets/logos/CEOE-logo.jpg"
+import Ceu from "../assets/logos/CEU.png"
+import FormacionUniversitaria from "../assets/logos/formacion-universitas.png"
+import Junta from "../assets/logos/junta-logo.png"
+import Cep from "../assets/logos/logo-andalucia.jpg"
+import SanValero from "../assets/logos/logo-san-valero.png"
+import Pontificia from "../assets/logos/universidad-pontificia.png"
+import Incibe from "../assets/logos/logo-incibe.png"
+import Core from "../assets/logos/core-networks.png"
+import Vodafone from "../assets/logos/vodafone.jpg"
+import Educatic from "../assets/logos/educatic.png"
 interface estudio {
     nombre: string,
     descripcion?: string,
@@ -8,90 +22,102 @@ interface estudio {
 }
 const EDUCACION =[
     {
+        nombre: "Autómatas programables",
+        empresa:"Educatic",
+        imagen: Educatic,
+        horas: "60" 
+    },
+    {
+        nombre: "Programación para soluciones de ioT y smart city aplicables a entornos 5G",
+        empresa:"Vodafone",
+        imagen: Vodafone,
+        horas: "150"
+    },
+    {
         nombre: "Innovación y Empresa",
         empresa:"Centro San Valero",
-        imagen:"https://images.credly.com/images/282d75ad-70cb-4a74-b572-2b86aafeb79b/blob.png",
+        imagen: SanValero,
         horas: "150"
     },
     {
         nombre: "Curso de ciberseguridad para microempresas y pequeños autónomos",
         empresa:"Incibe",
-        imagen:"https://alfa5.es/wp-content/uploads/2022/01/INCIBE-e1643033236795.png",
+        imagen: Incibe,
         horas: "30"
     },
     {
         nombre: "Digitalización aplicada al sector productivo",
         empresa:"CEOE",
-        imagen:"https://www.inmunotek.com/wp-content/uploads/2022/08/CEOE-logo.jpg",
+        imagen: Ceoe,
         horas: "30"
     },
     {
         nombre: "Robótica educativa en educación primaria",
         empresa:"UP Salamanca",
-        imagen:"https://www.extradigital.es/wp-content/uploads/2021/03/universidad-pontificia-de-salamanca.png",
+        imagen: Pontificia,
         horas: "110"
     },
     {
         nombre: "E-Learning: Aulas virtuales(MOODLE) y creación de recursos educativos(EXELEARNING)",
         empresa:"UP Salamanca",
-        imagen:"https://www.extradigital.es/wp-content/uploads/2021/03/universidad-pontificia-de-salamanca.png",
+        imagen: Pontificia,
         horas: "110"
     },
     {
         nombre: "Dirección y gestión de proyectos",
         empresa:"CEU San Pablo(Madrid)",
-        imagen:"https://seeklogo.com/images/U/Universidad_San_Pablo_CEU-logo-7B49CE1818-seeklogo.com.png",
+        imagen: Ceu,
         horas: "120"
     },
     {
         nombre: "Acción tutorial y evaluación en el sistema educativo",
         empresa:"CEP Sevilla",
-        imagen:"https://www.juntadeandalucia.es/educacion/portals/delegate/content/c3140af0-6ce1-4e6a-ab0e-ad7d05f72c41",
+        imagen: Cep,
         horas: "30"
     },
     {
         nombre: "Estrategia andaluza de desarrollo sostenible",
         empresa: "ECO AL-LAWRA",
-        imagen:"https://getlogovector.com/wp-content/uploads/2020/05/junta-de-andalucia-logo-vector.png",
+        imagen: Junta,
         horas: "30"
     },
     {
         nombre: "Educación ambiental en ambiente urbano",
         empresa:"CEP Sevilla",
-        imagen:"https://www.juntadeandalucia.es/educacion/portals/delegate/content/c3140af0-6ce1-4e6a-ab0e-ad7d05f72c41",
+        imagen: Cep,
         horas: "30"
     },
     {
         nombre: "Revisión del proyecto de centro",
         empresa:"CEP Sevilla",
-        imagen:"https://www.juntadeandalucia.es/educacion/portals/delegate/content/c3140af0-6ce1-4e6a-ab0e-ad7d05f72c41",
+        imagen: Cep,
         horas: "30"
     },
     {
         nombre: "Prevención de enfermedades en el aula",
         empresa:"AFOE",
-        imagen:"https://yt3.googleusercontent.com/ytc/AIf8zZQrhizq8v4DzhR3wITjIlgF_eDg18NSHJjWRLIR=s900-c-k-c0x00ffffff-no-rj",
+        imagen: Afoe,
         horas: "30"
     },
     {
         nombre: "Prevención y tratamiento de accidentes en el aula",
         empresa:"CEP Sevilla",
-        imagen:"https://www.topformacion.es/images/center/102/formacion-universitas.png",
+        imagen: FormacionUniversitaria,
         horas: "30"
     },
     {
         nombre: "Curso de prevención en el manejo de carretillas elevadoras",
         empresa:"Ejército del aire",
-        imagen:"https://ejercitodelaire.defensa.gob.es/EA/oceansky/2019/images/unidades/ala11.png",
+        imagen: Ala11,
         horas: "30"
     }
 ]
 ---
-<div class="grid grid-cols-3 gap-2 text-black text-sm hover:grid-cols-2 hover:text-lg transition-all duration-150">
+<div class="grid grid-cols-2 md:grid-cols-3 gap-2 text-black text-sm hover:grid-cols-1 hover:md:grid-cols-2 hover:text-lg transition-all duration-150">
 {EDUCACION.map(estudio =>(
     <div class="flex bg-white opacity-85 rounded-lg overflow-hidden shadow-lg p-1 items-center" >
         <div class="flex-row w-full h-auto"> 
-        <div class="flex items-center justify-center mb-2"><img src={estudio.imagen} alt="" class=" w-24"></div>
+        <div class="flex items-center justify-center mb-2"><Image src={estudio.imagen} alt="" class=" w-24"></div>
         <h3 class="font-extrabold">{estudio.nombre}</h3>
         <p class="opacity-65">{estudio.empresa}</p>
         <p class="font-boldmb-1">{estudio.horas} h</p>    

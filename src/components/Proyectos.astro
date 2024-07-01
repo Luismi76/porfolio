@@ -2,7 +2,11 @@
 import Astro_ico from "../components/iconos/Astro_ico.astro";
 import Tailwind_ico from "../components/iconos/Tailwind_ico.astro";
 import Prestashop from "../components/iconos/prestashop.astro";
-import Wordpress from "../components/iconos/WordPress.astro"
+import Wordpress from "../components/iconos/WordPress.astro";
+import { Image } from "astro:assets";
+import eCV from "../assets/proyectos/eCV.jpg"
+import Caseta from "../assets/proyectos/Caseta.jpg"
+import ModasRocio from "../assets/proyectos/ModasRocio.jpg"
 interface proyecto {
   nombre: string;
   descripcion?: string;
@@ -35,30 +39,30 @@ const PROYECTOS = [
   {
     nombre: "eCV",
     descripcion: "Curriculum online",
-    imagen: "/public/proyectos/eCV.jpg",
+    imagen: eCV,
     etiquetas: [TAGS.ASTRO, TAGS.TAILWIND],
   },
   {
     nombre: "Modas Rocio",
     descripcion:
       "Tienda online realizada con PrestaShop, plataformas de pago online y vaios pluggins.",
-    imagen: "/public/proyectos/ModasRocio.jpg",
+    imagen: ModasRocio,
     etiquetas: [TAGS.PRESTASHOP],
   },
   {
     nombre: "Caseta Los Costaleros",
     descripcion: "CMS para la gestión de una asociación dedicada al funcionamiento y mantenimiento e una caseta de feria.",
-    imagen: "/public/proyectos/Caseta.jpg",
+    imagen: Caseta,
     etiquetas: [TAGS.WORDPRESS]
   }
 ];
 ---
 
-<div class="grid grid-cols-2 gap-4 text-black hover:grid-cols-1">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-black hover:grid-cols-1">
   {
     PROYECTOS.map((proyecto) => (
       <div class="bg-slate-300 rounded-lg overflow-hidden shadow-lg p-3 hover:bg-slate-300 ">
-        <img src={proyecto.imagen} alt="" class="rounded-lg" />
+        <Image src={proyecto.imagen} alt="" class="rounded-lg" />
         <h3 class="h-auto max-w-full rounded-lg text-xl mx-1">
           {proyecto.nombre}
         </h3>
