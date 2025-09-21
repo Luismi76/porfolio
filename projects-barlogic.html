@@ -4,95 +4,432 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BarLogic - Luis Miguel Santana Castaño</title>
+    <meta name="description" content="TPV sencillo para hostelería con gestión básica de pedidos y artículos.">
     <style>
-      * { margin: 0; padding: 0; box-sizing: border-box; }
-      body { 
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-        line-height: 1.6; 
-        color: #333; 
-        background: #f8fafc; 
+    /* Variables CSS personalizadas - Plantilla: Creative */
+    :root {
+      --color-primary: #FF6B6B;
+      --color-secondary: #4ECDC4;
+      --color-accent: #45B7D1;
+      --color-background: #FFFBF0;
+      --color-surface: #FFF8E1;
+      --color-text-primary: #2C3E50;
+      --color-text-secondary: #34495E;
+      --color-text-accent: #E74C3C;
+      --gradient-primary: linear-gradient(120deg, #FF6B6B, #4ECDC4);
+      
+      --font-primary: 'Fira Code', monospace;
+      --font-heading: 'Fira Code', monospace;
+      
+      
+      --text-xs: 0.75rem;
+      --text-sm: 0.875rem;
+      --text-base: 1.125rem;
+      --text-lg: 1.125rem;
+      --text-xl: 1.25rem;
+      --text-2xl: 1.5rem;
+      --text-3xl: 2rem;
+      --text-4xl: 2.75rem;
+      
+      --weight-normal: 400;
+      --weight-medium: 500;
+      --weight-semibold: 600;
+      --weight-bold: 800;
+      
+      --max-width: 100%;
+      --spacing-xs: 0.5rem;
+      --spacing-sm: 1rem;
+      --spacing-md: 2rem;
+      --spacing-lg: 2rem;
+      --spacing-xl: 4rem;
+      
+      --radius-sm: 0.75rem;
+      --radius-md: 1rem;
+      --radius-lg: 0px;
+      --radius-xl: 2rem;
+      
+      --shadow-sm: 0 4px 8px 0 rgb(255 107 107 / 0.1);
+      --shadow-md: 0 12px 24px 0 rgb(255 107 107 / 0.15);
+      --shadow-lg: 0 20px 40px 0 rgb(255 107 107 / 0.2);
+      --shadow-xl: 0 32px 64px 0 rgb(255 107 107 / 0.25);
+    }
+
+    /* Reset y base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-primary);
+      font-size: var(--text-base);
+      font-weight: var(--weight-normal);
+      line-height: 1.6;
+      color: var(--color-text-primary);
+      background-color: var(--color-background);
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: var(--spacing-md);
+    }
+
+    /* Header - Replicando exactamente el portfolio real */
+    .header {
+      text-align: center;
+      padding: var(--spacing-xl) var(--spacing-md);
+      background: var(--gradient-primary);
+      color: white;
+      margin-bottom: var(--spacing-lg);
+      border-radius: var(--radius-lg);
+    }
+
+    .header-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .header h1 {
+      font-family: var(--font-heading);
+      font-size: var(--text-4xl);
+      font-weight: var(--weight-bold);
+      margin-bottom: var(--spacing-sm);
+      line-height: 1.2;
+    }
+
+    .header .title {
+      font-size: var(--text-xl);
+      font-weight: var(--weight-medium);
+      opacity: 0.9;
+      margin-bottom: var(--spacing-md);
+    }
+
+    .header .tagline {
+      font-size: var(--text-lg);
+      font-weight: var(--weight-medium);
+      opacity: 0.8;
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .header .summary {
+      font-size: var(--text-lg);
+      opacity: 0.95;
+      max-width: 600px;
+      margin: 0 auto var(--spacing-lg);
+      line-height: 1.6;
+    }
+
+    /* Enlaces de contacto en el header */
+    .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--spacing-md);
+      margin-top: var(--spacing-lg);
+    }
+
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-size: var(--text-sm);
+      font-weight: var(--weight-medium);
+      transition: all 0.2s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .contact-link:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-1px);
+    }
+
+    /* Secciones */
+    .section {
+      margin-bottom: var(--spacing-xl);
+    }
+
+    .section h2 {
+      font-family: var(--font-heading);
+      font-size: var(--text-3xl);
+      font-weight: var(--weight-bold);
+      color: var(--color-primary);
+      text-align: center;
+      margin-bottom: var(--spacing-lg);
+    }
+
+    /* Grid de proyectos */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: var(--spacing-md);
+      margin-bottom: var(--spacing-lg);
+    }
+
+    .project-card {
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-md);
+      box-shadow: var(--shadow-md);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .project-card h3 {
+      font-family: var(--font-heading);
+      font-size: var(--text-xl);
+      font-weight: var(--weight-semibold);
+      color: var(--color-primary);
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .project-card p {
+      color: var(--color-text-secondary);
+      margin-bottom: var(--spacing-md);
+      line-height: 1.6;
+    }
+
+    /* Tecnologías */
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--spacing-xs);
+      margin-bottom: var(--spacing-md);
+    }
+
+    .tech-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: var(--color-primary);
+      color: white;
+      padding: 4px 8px;
+      border-radius: var(--radius-sm);
+      font-size: var(--text-sm);
+      font-weight: var(--weight-medium);
+    }
+
+    /* Enlaces de proyecto */
+    .project-links {
+      display: flex;
+      gap: var(--spacing-sm);
+      flex-wrap: wrap;
+    }
+
+    .project-links a {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 16px;
+      background: var(--color-accent);
+      color: white;
+      text-decoration: none;
+      border-radius: var(--radius-md);
+      font-weight: var(--weight-medium);
+      transition: all 0.2s ease;
+    }
+
+    .project-links a:hover {
+      opacity: 0.8;
+      transform: translateY(-1px);
+    }
+
+    /* Grid de habilidades */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--spacing-md);
+    }
+
+    .skill-category {
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-md);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .skill-category h3 {
+      font-family: var(--font-heading);
+      font-size: var(--text-xl);
+      font-weight: var(--weight-semibold);
+      color: var(--color-primary);
+      margin-bottom: var(--spacing-md);
+      text-align: center;
+    }
+
+    .skill-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--spacing-xs);
+    }
+
+    .skill-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: var(--color-secondary);
+      color: white;
+      padding: 6px 12px;
+      border-radius: var(--radius-md);
+      font-size: var(--text-sm);
+      font-weight: var(--weight-medium);
+    }
+
+    /* Sección Sobre Mí */
+    .about-section {
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-lg);
+      margin-bottom: var(--spacing-xl);
+      text-align: center;
+    }
+
+    .about-section h2 {
+      margin-bottom: var(--spacing-md);
+    }
+
+    .about-section p {
+      font-size: var(--text-lg);
+      color: var(--color-text-secondary);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* Sección Experiencia */
+    .experience-section .experience-item {
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-md);
+      margin-bottom: var(--spacing-md);
+      border-left: 4px solid var(--color-primary);
+    }
+
+    .experience-item h3 {
+      color: var(--color-primary);
+      font-size: var(--text-xl);
+      font-weight: var(--weight-semibold);
+      margin-bottom: var(--spacing-xs);
+    }
+
+    .experience-item .company {
+      color: var(--color-text-secondary);
+      font-weight: var(--weight-medium);
+      margin-bottom: var(--spacing-xs);
+    }
+
+    .experience-item .period {
+      color: var(--color-accent);
+      font-size: var(--text-sm);
+      font-weight: var(--weight-medium);
+      margin-bottom: var(--spacing-sm);
+    }
+
+    /* Sección Contacto */
+    .contact-section {
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-lg);
+      text-align: center;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: var(--spacing-md);
+      flex-wrap: wrap;
+      margin-top: var(--spacing-md);
+    }
+
+    .contact-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--color-primary);
+      color: white;
+      padding: 12px 20px;
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      font-weight: var(--weight-medium);
+      transition: all 0.2s ease;
+    }
+
+    .contact-links a:hover {
+      background: var(--color-secondary);
+      transform: translateY(-2px);
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: var(--spacing-lg) 0;
+      margin-top: var(--spacing-xl);
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      color: var(--color-text-secondary);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .container {
+        padding: var(--spacing-sm);
       }
-      .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
-      .header { 
-        text-align: center; 
-        padding: 80px 20px; 
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
-        color: white; 
-        border-radius: 20px; 
-        margin-bottom: 40px; 
+      
+      .header {
+        padding: var(--spacing-lg) var(--spacing-sm);
+        margin-bottom: var(--spacing-md);
       }
-      .header h1 { font-size: 3.5em; margin-bottom: 15px; font-weight: bold; }
-      .header .title { font-size: 1.8em; opacity: 0.9; margin-bottom: 25px; }
-      .projects-grid { 
-        display: grid; 
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
-        gap: 30px; 
-        margin-bottom: 60px; 
+      
+      .header h1 {
+        font-size: var(--text-3xl);
       }
-      .card { 
-        background: white; 
-        border-radius: 15px; 
-        overflow: hidden; 
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
-        transition: all 0.3s ease; 
+
+      .header .title {
+        font-size: var(--text-lg);
       }
-      .card:hover { 
-        transform: translateY(-5px); 
-        box-shadow: 0 20px 40px rgba(0,0,0,0.15); 
+
+      .header .summary {
+        font-size: var(--text-base);
       }
-      .project-placeholder {
-        width: 100%; 
-        height: 200px; 
-        background: linear-gradient(135deg, #667eea, #764ba2);
-        display: flex;
+
+      .contact-info {
+        gap: var(--spacing-sm);
+      }
+
+      .contact-link {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+      }
+      
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .project-links {
+        flex-direction: column;
+      }
+
+      .contact-links {
+        flex-direction: column;
         align-items: center;
-        justify-content: center;
-        font-size: 4em;
-        color: white;
       }
-      .card-content { padding: 25px; }
-      .card h3 { color: #667eea; margin-bottom: 15px; font-size: 1.5em; }
-      .tech-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0; }
-      .tech-tag { 
-        display: inline-flex; 
-        align-items: center; 
-        gap: 6px; 
-        background: #e0e7ff; 
-        color: #667eea; 
-        padding: 6px 12px; 
-        border-radius: 20px; 
-        font-size: 0.85em; 
-      }
-      .btn { 
-        display: inline-flex; 
-        align-items: center; 
-        gap: 8px; 
-        padding: 10px 20px; 
-        border-radius: 8px; 
-        text-decoration: none; 
-        font-weight: 500; 
-        transition: all 0.3s ease; 
-      }
-      .btn-primary { background: #667eea; color: white; }
-      .btn-primary:hover { background: #5a67d8; }
-      .section-header { 
-        text-align: center; 
-        margin: 60px 0 40px; 
-        font-size: 2.5em; 
-        color: #667eea; 
-      }
-      .footer { 
-        background: #2d3748; 
-        color: white; 
-        text-align: center; 
-        padding: 40px 20px; 
-        margin-top: 80px; 
-      }
-    </style>
+    }
+
+    /* CSS personalizado del usuario y la plantilla */
+    
+  </style>
 </head>
 <body>
     <div class="container">
-        <a href="index.html" style="color:#667eea;text-decoration:none;margin-bottom:20px;display:inline-block;">← Volver</a>
+        <a href="index.html" style="color:var(--color-primary);text-decoration:none;margin-bottom:var(--spacing-md);display:inline-block;font-weight:var(--weight-medium);">← Volver al Portfolio</a>
         
         <div class="header">
             <h1>BarLogic</h1>
@@ -102,6 +439,31 @@
         
 
         
+
+        
+            <section class="section">
+                <div class="project-card">
+                    <h3>Tecnologías Utilizadas</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">⚛️ React</span><span class="tech-tag">💙 TypeScript</span>
+                    </div>
+                </div>
+            </section>
+        
+
+        
+
+        <section class="section">
+            <div class="project-links" style="justify-content: center;">
+                
+                
+                <a href="index.html">🏠 Volver al Portfolio</a>
+            </div>
+        </section>
     </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 Luis Miguel Santana Castaño. Portfolio con plantilla "Creative".</p>
+    </footer>
 </body>
 </html>

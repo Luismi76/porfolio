@@ -1,0 +1,37 @@
+# 🎯 Instrucciones para GitHub Pages
+
+¡Portfolio generado con plantilla "Creative"!
+
+## 📦 Archivos generados:
+✓ index.html
+✓ projects-igualarings.html
+✓ projects-cursoapp.html
+✓ projects-barlogic.html
+✓ projects-cv-generator.html
+✓ projects-preciogasolineras.html
+✓ projects-porfolio.html
+✓ projects-web.html
+✓ projects-tpv.html
+✓ README.md
+
+## 🚀 Pasos para publicar:
+
+1. **Crear repositorio en GitHub** (debe ser público)
+2. **Subir archivos**: Arrastra todos los archivos a tu repo
+3. **Configurar Pages**: 
+   - Settings → Pages → Deploy from branch → main → / (root)
+4. **Acceder**: https://tu-usuario.github.io/nombre-repo
+
+## 🎨 Personalización aplicada
+
+Tu portfolio usa la plantilla "Creative" con:
+- Colores: #FF6B6B (primario)
+- Tipografía: 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif
+- Ancho máximo: 100%
+- Estilo: creative
+
+## 📞 Soporte
+
+Si tienes problemas, revisa la documentación de GitHub Pages.
+
+¡Tu portfolio se verá increíble! 🌟
